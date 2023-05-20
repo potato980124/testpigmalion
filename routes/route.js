@@ -5,9 +5,9 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 const db = require("./../db.js");
-const session = require("express-session");
+// const session = require("express-session");
 // const crypto = require("crypto");
-const FileStore = require("session-file-store")(session); // 세션을 파일에 저장
+// const FileStore = require("session-file-store")(session); // 세션을 파일에 저장
 // const cookieParser = require("cookie-parser");
 // const request = require("request");
 
@@ -45,11 +45,6 @@ router.post("/loginCheck", (req, res) => {
   let pw = param["pw"];
   db.loginCheck(id, pw, (results) => {
     if (results.length > 0) {
-      req.session.is_logined = true;
-      req.session.userId = results[0].id;
-      req.session.pw = results[0].pw;
-      req.session.cWeight = results[0].cWeight;
-      req.session.tWeight = results[0].tWeight;
       res.redirect("/");
     } else {
       res.send(
@@ -61,14 +56,14 @@ router.post("/loginCheck", (req, res) => {
 
 //달력 페이지
 router.get("/calendar", (req, res) => {
-    let userid = potato990124;
+    let userid = "potato990124";
     let todayYearMonthDate = req.query.id;
     console.log(todayYearMonthDate);
     db.getUsercalendar(userid, todayYearMonthDate, (results,joinresults) => {
       // console.log(results);
       res.render("calendar", {
-        cWeight: req.session.cWeight,
-        tWeight: req.session.tWeight,
+        cWeight: "62",
+        tWeight: "56",
         newWeight: joinresults,
         results: results,
         todayYearMonthDate:todayYearMonthDate
@@ -86,7 +81,7 @@ router.post("/cRegisInfo", (req, res) => {
   let foodsListDinner = [];
   let dListLength = param[`d_foods_length`];
   let when = param["food_info_when"];
-  let userid = req.session.userId;
+  let userid = "potato990124";
   let currentKg = param["currentKg"];
   // console.log(param);
   console.log(mListLength);
