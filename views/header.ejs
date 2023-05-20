@@ -1,11 +1,8 @@
 <!-- 모바일메뉴 -->
 <div class="h_m_menu_wrap">
   <ul>
-    <% if(is_logined == false){ %>
     <div class="log_out_btn"><a href="/login">로그인</a></div>
-    <% }else{ %>
     <div class="log_out_btn"><a href="/logout">로그아웃</a></div>
-    <% } %>
     <li><a href="">HOME</a></li>
     <li class="m_menu_gnb"><a href="/calendar">칼로리 캘린더</a></li>
     <li class="m_menu_gnb"><a href="">음식</a></li>
@@ -41,11 +38,8 @@
             <span class="g_under_line"></span>
           </a>
         </li>
-        <% if(is_logined == false){ %>
         <li><a href="/login" class="greenRoundBox">로그인</a></li>
-        <% }else{ %>
         <li><a href="/logout" class="greenRoundBox">로그아웃</a></li>
-        <% } %>
       </ul>
     </nav>
     <!-- 모바일 햄버거 버튼 -->
