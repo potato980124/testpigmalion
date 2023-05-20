@@ -1,0 +1,105 @@
+.login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pig_img{
+    position: absolute;
+    z-index: -1;
+    transform: translate(-5%,20%);
+}
+.pig_img>img{
+    width: 700px;
+}
+.login .login_wrap{
+    background-color: #fff;
+}
+
+.login .login_wrap .login_logo {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.login .login_wrap .login_logo>a>img {
+    display: block;
+    width: 100%;
+}
+
+.login .login_content {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    width: 450px;
+    border: 1px solid #C6C6C6;
+    border-radius: 20px;
+    padding: 20px 28px;
+    box-sizing: border-box;
+}
+
+.login .id_pw_wrap>li {
+    display: flex;
+    height: fit-content;
+    justify-content: space-between;
+    padding: 13px 20px;
+    border: 1px solid #C6C6C6;
+    box-sizing: border-box;
+}
+
+.id_box {
+    border-radius: 20px 20px 0 0;
+}
+
+.pw_box {
+    border-radius: 0 0 20px 20px;
+}
+
+.login .id_pw_wrap>li>input {
+    display: block;
+    outline-style: none;
+    border: 0;
+    width: 80%;
+    height: 24px;
+}
+
+.login .id_pw_wrap>li img {
+    display: block;
+}
+
+.warn_login{
+    color: #ff003e;
+    font-size: 12px;
+}
+.login .login_content>button {
+    margin-top: 60px;
+    width: 100%;
+    background-color: #91CF00;
+    border: 0;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.login .join_btn {
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+}
+@media(max-width:700px) {
+    .pig_img{
+        display: none;
+    }
+}
+@media(max-width:450px) {
+    .login .login_content {
+        width: 100%;
+    }
+    .login .login_content>button {
+        font-size: 15px;
+    }
+    .login .join {
+        font-size: 12px;
+    }
+}

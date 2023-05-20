@@ -1,0 +1,58 @@
+<main class="join">
+    <div class="join_wrap">
+        <div class="join_logo"><a href="/"><img src="../img/피그말리온가로로고2.png" alt=""></a></div>
+        <form action="joinInfo" method="post" name="joinsubmit">
+            <ul class="join_content">
+                <li class="joinc_back_imgs">
+                    <img class="left_pig_img" src="../img/join_pig.png" alt="">
+                    <img class="right_pig_img" src="../img/join_pig.png" alt="">
+                </li>
+                <li>
+                    <h1>피그말리온 계정</h1>
+                    <div class="join_account_box">
+                        <p>아이디:</p>
+                        <input class="type_text" id="id" name="id" type="text" placeholder="4~12자의 영문 대소문자와 숫자로만 입력하세요.">
+                    </div>
+                    <div class="join_account_box">
+                        <p>비밀번호:</p>
+                        <input class="type_text" id="pwd" name="pw" type="password" placeholder="4~12자의 영문 대소문자와 숫자로만 입력하세요.">
+                    </div>
+                    <div class="join_account_box">
+                        <p>비밀번호 확인:</p>
+                        <input class="type_text" id="pwd2" name="rpw" type="password" placeholder="비밀번호를 다시 입력하세요,">
+                    </div>
+                </li>
+                <li>
+                    <h1>내 세부정보</h1>
+                    <div class="join_account_box">
+                        <p>성별:</p>
+                        <input class="type_radio" type="radio"  name="sex" value="male"><span class="join_sex">&nbsp남자</span>
+                        &nbsp&nbsp&nbsp<input class="type_radio" type="radio" name="sex" value="female"><span
+                            class="join_sex">&nbsp여자</span>
+                    </div>
+                    <div class="join_account_box">
+                        <p>회원이름:</p>
+                        <input class="type_text" id="name" name="name" type="text" placeholder="피그말리온에서 사용할 이름을 적어주세요.">
+                    </div>
+                    <div class="join_account_box">
+                        <p>생년월일:</p>
+                        <input class="type_text" id="birth" name="birth" type="text" placeholder="ex) 19990124">
+                    </div>
+                </li>
+                <li>
+                    <h1>내 목표</h1>
+                    <div class="join_account_box">
+                        <p>현재체중:</p>
+                        <input class="type_num" id="current_weight" name="cWeight" type="number" placeholder="숫자만 입력 해주세요 , 단위:kg">
+                    </div>
+                    <div class="join_account_box">
+                        <p>목표체중:</p>
+                        <input class="type_num" id="target_weight" name="tWeight" type="number" placeholder="숫자만 입력 해주세요 , 단위:kg">
+                    </div>
+                </li>
+                <button class="join_accept_btn" type="button" onclick="Validation()">가입하기</button>
+            </ul>
+        </form>
+    </div>
+</main>
+<script src="js/join.js"></script>

@@ -1,0 +1,58 @@
+<!-- 모바일메뉴 -->
+<div class="h_m_menu_wrap">
+  <ul>
+    <% if(is_logined == false){ %>
+    <div class="log_out_btn"><a href="/login">로그인</a></div>
+    <% }else{ %>
+    <div class="log_out_btn"><a href="/logout">로그아웃</a></div>
+    <% } %>
+    <li><a href="">HOME</a></li>
+    <li class="m_menu_gnb"><a href="/calendar">칼로리 캘린더</a></li>
+    <li class="m_menu_gnb"><a href="">음식</a></li>
+    <li class="m_menu_gnb"><a href="">커뮤니티</a></li>
+  </ul>
+</div>
+<!-- 모바일 햄버거 버튼 -->
+<div class="m_hamberger">
+  <span class="line1"></span>
+  <span class="line2"></span>
+  <span class="line3"></span>
+</div>
+<!-- 헤더시작 -->
+<header>
+  <div class="inner_header w1100">
+    <a href="/" class="logo">
+      <img src="../img/피그말리온가로로고2.png" alt="">
+    </a>
+    <nav class="gnb">
+      <ul>
+        <li class="gnb_menu">
+          <a href="/calendar">칼로리 캘린더
+            <span class="g_under_line"></span>
+          </a>
+        </li>
+        <li class="gnb_menu">
+          <a href="">음식
+            <span class="g_under_line"></span>
+          </a>
+        </li>
+        <li class="gnb_menu">
+          <a href="">커뮤니티
+            <span class="g_under_line"></span>
+          </a>
+        </li>
+        <% if(is_logined == false){ %>
+        <li><a href="/login" class="greenRoundBox">로그인</a></li>
+        <% }else{ %>
+        <li><a href="/logout" class="greenRoundBox">로그아웃</a></li>
+        <% } %>
+      </ul>
+    </nav>
+    <!-- 모바일 햄버거 버튼 -->
+    <!-- <div class="m_hamberger">
+      <span class="line1"></span>
+      <span class="line2"></span>
+      <span class="line3"></span>
+    </div> -->
+  </div>
+</header>

@@ -1,0 +1,28 @@
+<main class="login">
+    <div class="pig_img">
+        <img src="../img/login_pig2.png" alt="">
+    </div>
+    <div class="login_wrap">
+        <div class="login_logo"><a href="/"><img src="../img/피그말리온가로로고2.png" alt=""></a></div>
+        <form action="loginCheck" method="post" name="loginCheck">
+            <div class="login_content">
+                <ul class="id_pw_wrap">
+                    <li class="id_box">
+                        <div class="pw_id_img"><img src="../img/user.png" alt=""></div>
+                        <input class="login_input" name="id" type="text" placeholder="아이디">
+                        <div class="delete_btn"><img src="../img/delete.png" alt=""></div>
+                    </li>
+                    <li class="pw_box">
+                        <div class="pw_id_img"><img src="../img/padlock.png" alt=""></div>
+                        <input class="login_input" name="pw"  type="password" placeholder="비밀번호">
+                        <div class="delete_btn"><img src="../img/delete.png" alt=""></div>
+                    </li>
+                </ul>
+                <p class="warn_login"></p>
+                <button type="button" onclick="login_check(event)">로그인</button>
+            </div>
+        </form>
+        <div class="join_btn"><a href="/join">회원가입</a></div>
+    </div>
+</main>
+<script src="js/login.js"></script>

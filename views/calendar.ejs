@@ -1,0 +1,215 @@
+<main class="calendar w1100">
+  <!-- 달력 위 목표달성률 -->
+  <div class="processbox_wrap">
+    <div class="t_sucsess">목표달성!!</div>
+    <ul class="processbox_bg">
+      <li class="cWeight_pig">
+        <p class="cWeight"><%= newWeight[0].newWeight %><strong>kg</strong></p>
+        <div class="cWeight_img"><img src="../img/pig.gif" alt="" /></div>
+      </li>
+      <li class="tWeight_thropy">
+        <p class="tWeight"><%= tWeight %><strong>kg</strong></p>
+        <div class="tWeight_img"><img src="../img/award.gif" alt="" /></div>
+      </li>
+      <li class="originWeight_wrap">
+        <p class="originWeight"><%= cWeight %></p>
+      </li>
+    </ul>
+  </div>
+  <!-- 등록정보,달력 -->
+  <div class="calendarbox_wrap">
+    <!-- 등록정보 -->
+    <div class="c_left_regis_info">
+      <div class="c_regis_info_tit">
+        <h1>칼로리 캘린더</h1>
+        <h2 class="date_click c_y_m_d_subtit">
+          <%if(results.length == 0){%> <%= todayYearMonthDate %> <%}%>
+          <%if(results.length > 0){%> <%= results[0].whenregis %> <%}%>
+        </h2>
+      </div>
+      <!-- 맨처음 페이지 들어왔을 때 -->
+      <div class="first_cal_left_wrap">
+        <p>달력에서 날짜를 클릭 해주세요!</p>
+      </div>
+      <%if(results.length > 0){%>
+      <div class="c_regis_results_wrap">
+        <table>
+          <colgroup>
+            <col width="30%" />
+            <col width="17.5%" />
+            <col width="17.5%" />
+            <col width="17.5%" />
+            <col width="17.5%" />
+          </colgroup>
+          <tr>
+            <th class="nutri_title">오늘의 영양정보</th>
+            <th>지방(g)</th>
+            <th>탄수화물(g)</th>
+            <th>단백질(g)</th>
+            <th>칼로리(kcal)</th>
+          </tr>
+          <tr class="nutri_sum">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="when_eat">아침식사</td>
+          </tr>
+          <% results.forEach((result,index) =>{ %> <% if(result.whenfood ==
+          'morning'){%>
+          <tr class="nutri_result">
+            <td><%= result.foodname %></td>
+            <td><%= result.fat %></td>
+            <td><%= result.tan %></td>
+            <td><%= result.dan %></td>
+            <td><%= result.kcal %></td>
+          </tr>
+          <%}%> <% }); %>
+          <tr>
+            <td class="when_eat">점심식사</td>
+          </tr>
+          <% results.forEach((result,index) =>{ %> <% if(result.whenfood ==
+          'lunch'){%>
+          <tr class="nutri_result">
+            <td><%= result.foodname %></td>
+            <td><%= result.fat %></td>
+            <td><%= result.tan %></td>
+            <td><%= result.dan %></td>
+            <td><%= result.kcal %></td>
+          </tr>
+          <%}%> <% }); %>
+          <tr>
+            <td class="when_eat">저녁식사</td>
+          </tr>
+          <% results.forEach((result,index) =>{ %> <% if(result.whenfood ==
+          'dinner'){%>
+          <tr class="nutri_result">
+            <td><%= result.foodname %></td>
+            <td><%= result.fat %></td>
+            <td><%= result.tan %></td>
+            <td><%= result.dan %></td>
+            <td><%= result.kcal %></td>
+          </tr>
+          <%}%> <% }); %>
+        </table>
+        <% let whenregis = []; %>
+        <% results.forEach((result,index) =>{ %> <% if(result.whenregis == todayYearMonthDate){%>
+        <% whenregis.push(result.whenregis) %>
+        <%}%> <% }); %>
+        <button onclick="location.href=`/deleteInfo?id=<%= whenregis[0] %>`">캘린더 삭제하기</button>
+      </div>
+      <%}%>
+      <form
+        action="/cRegisInfo"
+        method="post"
+        class="date_click cal_result_box"
+        name="cal_submit"
+      >
+        <ul class="c_regis_info">
+          <input class="food_info_when" name="food_info_when" type="hidden" />
+          <input class="m_foods_length" name="m_foods_length" type="hidden" />
+          <input class="l_foods_length" name="l_foods_length" type="hidden" />
+          <input class="d_foods_length" name="d_foods_length" type="hidden" />
+          <li>
+            <div class="c_regis_info_search">
+              <h3>아침식사</h3>
+              <div class="c_regis_input_wrap">
+                <input class="m_eat" type="text" /><button
+                  type="button"
+                  onclick="foodSearch()"
+                >
+                  <img src="img/search.png" alt="" />
+                </button>
+              </div>
+            </div>
+            <div class="c_regis_input_result">
+              <div class="c_regis_check_wrap m_check morning"></div>
+            </div>
+            <div class="c_regis_what_wrap c_regis_what_wrap_morning"></div>
+          </li>
+          <li>
+            <div class="c_regis_info_search">
+              <h3>점심식사</h3>
+              <div class="c_regis_input_wrap">
+                <input class="l_eat" type="text" /><button
+                  type="button"
+                  onclick="foodSearchLunch()"
+                >
+                  <img src="img/search.png" alt="" />
+                </button>
+              </div>
+            </div>
+            <div class="c_regis_input_result">
+              <div class="c_regis_check_wrap m_check lunch"></div>
+            </div>
+            <div class="c_regis_what_wrap c_regis_what_wrap_lunch"></div>
+          </li>
+          <li>
+            <div class="c_regis_info_search">
+              <h3>저녁식사</h3>
+              <div class="c_regis_input_wrap">
+                <input class="d_eat" type="text" /><button
+                  type="button"
+                  onclick="foodSearchDinner()"
+                >
+                  <img src="img/search.png" alt="" />
+                </button>
+              </div>
+            </div>
+            <div class="c_regis_input_result">
+              <div class="c_regis_check_wrap m_check dinner"></div>
+            </div>
+            <div class="c_regis_what_wrap c_regis_what_wrap_dinner"></div>
+          </li>
+          <li>
+            <div class="c_regis_info_weight">
+              <h3>현재 몸무게</h3>
+              <div class="c_regis_input_wrap">
+                <input class="must_kg" type="text" name="currentKg" /><strong>kg</strong>
+              </div>
+            </div>
+          </li>
+          <li>
+            <button type="button" onclick="must_kg()">캘린더 등록</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+    <!-- 달력 -->
+    <div class="right_calendar">
+      <table id="calendar_table">
+        <colgroup>
+          <col style="width: 14.285%" />
+          <col style="width: 14.285%" />
+          <col style="width: 14.285%" />
+          <col style="width: 14.285%" />
+          <col style="width: 14.285%" />
+          <col style="width: 14.285%" />
+          <col style="width: 14.285%" />
+        </colgroup>
+        <tr id="c_mainBar">
+          <td id="preventMonth" colspan="1">
+            <span id="preventMonth_Button" onclick="prevMonth()"><</span>
+          </td>
+          <td id="yearMonth" colspan="5"></td>
+          <td id="nextMonth" colspan="1">
+            <span id="nextMonth_Button" onclick="nextMonth()">></span>
+          </td>
+        </tr>
+        <tr id="day">
+          <td>Sun</td>
+          <td>Mon</td>
+          <td>Tue</td>
+          <td>Wed</td>
+          <td>Thu</td>
+          <td>Fri</td>
+          <td>Sat</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</main>
+<script src="js/calendar.js"></script>
